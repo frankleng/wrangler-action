@@ -201,6 +201,8 @@ async function uploadSecrets() {
 			'\\"',
 		)}" | ${getNpxCmd()} wrangler secret:bulk ${environmentSuffix}`;
 
+		info(secretCmd)
+
 		execSync(secretCmd, {
 			cwd: workingDirectory,
 			env: process.env,
