@@ -22,6 +22,7 @@ const config = {
 	WRANGLER_VERSION: getInput("wranglerVersion") || DEFAULT_WRANGLER_VERSION,
 	secrets: getMultilineInput("secrets"),
 	workingDirectory: checkWorkingDirectory(getInput("workingDirectory")),
+	packageManager: getInput("packageManager"),
 	CLOUDFLARE_API_TOKEN: getInput("apiToken"),
 	CLOUDFLARE_ACCOUNT_ID: getInput("accountId"),
 	ENVIRONMENT: getInput("environment"),
@@ -208,6 +209,7 @@ async function uploadSecrets() {
 
 		info(`✅ Uploaded secrets`);
 	} catch (err) {
+		error(JSON.stringify(err));
 		error(`❌ Upload failed`);
 		throw new Error(`Failed to upload secrets.`);
 	} finally {
