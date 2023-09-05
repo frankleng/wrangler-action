@@ -94,7 +94,7 @@ function installWrangler() {
 		);
 	}
 	startGroup("📥 Installing Wrangler");
-	const command = `npm install wrangler@${config["WRANGLER_VERSION"]}`;
+	const command = `pnpm install wrangler@${config["WRANGLER_VERSION"]}`;
 	info(`Running command: ${command}`);
 	execSync(command, { cwd: config["workingDirectory"], env: process.env });
 	info(`✅ Wrangler installed`, true);
